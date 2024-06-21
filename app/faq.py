@@ -1,0 +1,37 @@
+faq_data = {
+    "What sizes are available?": "We offer sizes ranging from XS to XXL, including a size chart to help you choose the best fit. Kids' sizes from 2T to XL are also available.",
+    "Can I add my own design to the t-shirt?": "Yes, you can upload your design or choose from our library of designs.",
+    "What materials are the t-shirts made from?": "Our t-shirts are available in 100% cotton, cotton-polyester blend, and organic cotton.",
+    "What is the delivery time for a custom t-shirt?": "Delivery typically takes 1-2 weeks depending on your location.",
+    "How can I track my order?": "You can track your order by logging into your account and viewing your order history.",
+    "Is there a minimum order quantity for custom t-shirts?": "No, you can order as few as one custom t-shirt.",
+    "What printing options do you offer?": "We offer screen printing, embroidery, heat transfer, and direct-to-garment printing.",
+    "Can I see a preview of my design before placing an order?": "Yes, our design tool provides a preview of your t-shirt before you finalize your order.",
+    "Do you offer bulk discounts?": "Yes, we offer discounts for bulk orders. Please contact our sales team for more information.",
+    "What is your return policy for custom t-shirts?": "Custom t-shirts can be returned within 30 days of delivery, provided they are in their original condition.",
+    "Can I change my order after it has been placed?": "Changes can be made within 24 hours of placing the order. Please contact customer support for assistance.",
+    "What payment methods do you accept?": "We accept major credit cards, PayPal, and Apple Pay.",
+    "How do I care for my custom t-shirt?": "We recommend washing your t-shirt inside out in cold water and tumble drying on low to preserve the print.",
+    "Can I order matching t-shirts for an event?": "Yes, you can design and order matching t-shirts for events, teams, and groups.",
+    "Do you offer kids’ sizes?": "Yes, we offer a range of kids’ sizes from 2T to XL.",
+    "Are your materials eco-friendly?": "We offer eco-friendly options like organic cotton and recycled polyester.",
+    "Can I get assistance with my design?": "Yes, our design team is available to help you create the perfect t-shirt.",
+    "What happens if my order is damaged upon arrival?": "If your order arrives damaged, please contact us with a photo of the damage, and we will send a replacement.",
+    "Do you ship internationally?": "Yes, we ship to most countries worldwide. Shipping times and rates may vary.",
+    "How can I contact customer support?": "You can reach customer support via email, phone, or live chat on our website.",
+    "Can I reorder a previous design?": "Yes, you can easily reorder previous designs by logging into your account and selecting from your order history.",
+    "Do you offer gift cards?": "Yes, we offer gift cards that can be purchased and used towards any custom t-shirt order.",
+    "Are there any special care instructions for eco-friendly materials?": "For eco-friendly materials like organic cotton, we recommend washing in cold water and hanging to dry to maintain the fabric’s integrity.",
+    "What is TeeCustomizer?": "TeeCustomizer is an online platform that allows users to design and order custom t-shirts. We cater to both individual customers and businesses, providing a range of printing options and high-quality materials.",
+    "How long has TeeCustomizer been in business?": "TeeCustomizer has been proudly serving customers since 2017.",
+    "Where is TeeCustomizer located?": "Our headquarters is located in Riga, Latvia, and we operate multiple production facilities to ensure efficient service and delivery.",
+    "Can I cancel my order?": "Orders can be canceled within 24 hours of placing the order. Please contact customer support for assistance.",
+    "What are your business hours?": "Our customer support team is available Monday to Friday, 9 AM to 6 PM (local time).",
+    "Are there any additional charges for international shipping?": "Yes, additional shipping charges and customs fees may apply for international orders.",
+    "Do you offer expedited shipping options?": "Yes, expedited shipping options are available at an additional cost. Please select the expedited shipping option at checkout.",
+    "Can I use multiple discount codes on a single order?": "No, only one discount code can be applied per order.",
+    "Do you offer design templates?": "Yes, we offer a variety of design templates to help you get started."
+}
+
+def get_faq_response(question):
+    return faq_data.get(question, "Sorry, I don't have an answer to that question. Please contact our customer support for more information.")

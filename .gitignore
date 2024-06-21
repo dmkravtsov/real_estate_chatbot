@@ -1,0 +1,28 @@
+# Ignore virtual environment
+venv/
+
+# Ignore environment configuration files
+.env
+
+# Ignore MLflow artifacts and temporary files
+mlruns/
+
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Ignore log and temporary files
+*.log
+*.tmp
+*.temp
+
+# Ignore support request file
+support_requests.txt
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE and editor settings files
+.idea/
+.vscode/

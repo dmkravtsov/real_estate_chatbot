@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with OpenAI</title>
+</head>
+<body>
+    <h1>Chat with OpenAI Bot</h1>
+    <div id="chat-window"></div>
+    <input type="text" id="user-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userInput })
+            });
+            const data = await response.json();
+            const chatWindow = document.getElementById('chat-window');
+            chatWindow.innerHTML += `<p>User: ${userInput}</p><p>Bot: ${data.response}</p>`;
+            document.getElementById('user-input').value = '';
+        }
+    </script>
+</body>
+</html>
