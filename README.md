@@ -1,3 +1,4 @@
+
 # Flask OpenAI Chatbot
 
 ## Overview
@@ -13,28 +14,7 @@ This project implements a conversational chatbot using Flask and OpenAI. The cha
 - Uses MLflow for logging the chatbot's responses and parameters.
 
 ## Project Structure
-
-
-Here's a detailed README.md file for your project that describes everything you've done, including logging with MLflow.
-
-markdown
-Копировать код
-# Flask OpenAI Chatbot
-
-## Overview
-
-This project implements a conversational chatbot using Flask and OpenAI. The chatbot is designed for a hypothetical platform, TeeCustomizer, where users can design and order customizable t-shirts. The chatbot assists users with selecting styles, colors, sizes, and printing options, answers frequently asked questions (FAQs), and logs support requests. Additionally, the project includes basic logging of progress using MLflow.
-
-## Features
-
-- Guides users through the process of ordering a customizable t-shirt.
-- Provides answers to frequently asked questions.
-- Logs support requests based on user interactions.
-- Integrates with OpenAI for generating responses.
-- Uses MLflow for logging the chatbot's responses and parameters.
-
-## Project Structure
-
+<pre>
 flask_openai_chatbot/
 │
 ├── app/
@@ -52,6 +32,7 @@ flask_openai_chatbot/
 ├── requirements.txt # Project dependencies
 ├── run.py # Entry point for running the Flask application
 └── mlflow_test.py # Script for testing MLflow logging
+</pre>
 
 ## Setup Instructions
 
