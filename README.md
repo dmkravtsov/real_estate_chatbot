@@ -155,3 +155,18 @@ Contributions are welcome! Please submit a pull request or open an issue to disc
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Improvements as of 28.06.24
+
+- **Context Handling**: 
+  - Implemented chat history to make the LLM aware of previous interactions and guide the LLM to collect all the details of the order/ask more questions on support requests.
+
+- **Efficient Question Answering**:
+  - Integrated vector search using TF-IDF and cosine similarity to efficiently find and answer user questions.
+
+- **Guiding Prompts/Examples**:
+  - Added examples and more detailed system prompts to guide the LLM on how to behave in different scenarios.
+
+- **Logging**:
+  - Implemented MLflow for logging user interactions, responses, and other metrics for better tracking and evaluation of the chatbot’s performance.
+
