@@ -1,28 +1,26 @@
-# Ignore virtual environment
+# Ignore the virtual environment directory
 venv/
 
-# Ignore environment configuration files
+# Ignore environment variable files
 .env
-
-# Ignore MLflow artifacts and temporary files
-mlruns/
-
-# Ignore Python bytecode files
-__pycache__/
-*.py[cod]
-
-# Ignore log and temporary files
-*.log
-*.tmp
-*.temp
-
-# Ignore support request file
-support_requests.txt
 
 # Ignore system files
 .DS_Store
 Thumbs.db
 
-# Ignore IDE and editor settings files
-.idea/
-.vscode/
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore temporary files
+*.tmp
+*.log
+*.bak
+*.swp
+
+# Ignore MLflow artifact store
+mlruns/
