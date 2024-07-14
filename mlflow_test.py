@@ -1,23 +1,23 @@
-import mlflow  # Importing the MLflow library for logging and tracking machine learning experiments.
+import mlflow  # Импортируем библиотеку MLflow для логирования и отслеживания экспериментов машинного обучения.
 
 def run_test():
-    # Start a new MLflow run. This ensures that all the parameters and metrics
-    # logged in this context are associated with this particular run.
+    # Начинаем новый запуск MLflow. Это гарантирует, что все параметры и метрики,
+    # зарегистрированные в этом контексте, связаны с этим конкретным запуском.
     with mlflow.start_run():
-        # Log a parameter named "param1" with a value of 5. Parameters in MLflow
-        # are typically static values that describe your experiment or model.
+        # Логируем параметр с именем "param1" и значением 5. Параметры в MLflow
+        # обычно являются статическими значениями, описывающими ваш эксперимент или модель.
         mlflow.log_param("param1", 5)
 
-        # Log a metric named "metric1" with a value of 0.85. Metrics are values
-        # that measure performance or other characteristics and can change
-        # throughout the course of an experiment.
+        # Логируем метрику с именем "metric1" и значением 0.85. Метрики - это значения,
+        # которые измеряют производительность или другие характеристики и могут изменяться
+        # в течение эксперимента.
         mlflow.log_metric("metric1", 0.85)
 
-        # Print a confirmation message indicating that the test run has been
-        # completed and logged successfully.
+        # Печатаем сообщение с подтверждением, что тестовый запуск был
+        # успешно завершен и зарегистрирован.
         print("Test run completed and logged.")
 
-# The following block checks if this script is being run directly (as opposed
-# to being imported as a module), and if so, it calls the run_test function.
+# Следующий блок проверяет, выполняется ли этот скрипт напрямую (а не импортируется как модуль),
+# и если да, то вызывает функцию run_test.
 if __name__ == "__main__":
     run_test()

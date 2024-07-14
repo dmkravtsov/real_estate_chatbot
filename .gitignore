@@ -24,3 +24,6 @@ __pycache__/
 
 # Ignore MLflow artifact store
 mlruns/
+
+# Support requests log
+support_requests.txt
