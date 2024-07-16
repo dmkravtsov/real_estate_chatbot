@@ -12,6 +12,11 @@ from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain_community.llms import OpenAI
 from langchain_openai import ChatOpenAI
+import streamlit as st
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+import tempfile
 
 
 
@@ -96,28 +101,33 @@ agent = create_csv_agent(
     allow_dangerous_code=True
 )
 
+
+
 def handle_user_query(user_query):
+    if mlflow.active_run() is not None:
+        mlflow.end_run()
+
     mlflow.start_run()
     mlflow.log_param("user_prompt", user_query)
-    chat_history.append({"role": "user", "content": user_query})
+
+    plot_path = None  # Инициализация переменной для хранения пути к графику
 
     try:
         if matched_question := vector_search_faq(user_query):
             response = get_faq_response(matched_question)
             mlflow.log_params({"response_type": "FAQ", "matched_question": matched_question})
-            chat_history.append({"role": "assistant", "content": response})
             mlflow.end_run()
-            return response
+            return response, plot_path
 
         if detect_support_request(user_query):
             response = save_support_request(user_query)
             mlflow.log_params({"response_type": "Support Request", "support_request_saved": "yes"})
-            chat_history.append({"role": "assistant", "content": response})
             mlflow.end_run()
-            return f"It looks like you need support. {response}"
+            return f"It looks like you need support. {response}", plot_path
 
         # Использование агента LangChain для обработки запроса
         prompt = """
+        Give the answer in the language in which the user asks the questions.
         The following analysis is based on real estate investment data.
         This includes factors like:
          - Net Operating Income (NOI)
@@ -133,22 +143,34 @@ def handle_user_query(user_query):
         Column 'Median age' means age of citizens. Calculate the age of properties/houses by: the current year minus the year built.
         Feature df['Noise / Airport'] means noise level due to the airport, but you can check proximity to the airport in Description also.
         If you are asked to find or show any objects: after receiving the data, it is not enough to say how many objects you found; you need to display selective 5 objects: ID and address.
-        If you are asked to plot or build a graph of something - at the end of your reply return execution code to make the plot. Don't say excuses, only describe results and return the code.
+        If you are asked to plot or build a graph of something, generate the Python code in triple quotes to create the plot using matplotlib without any explanatory text.
         Answer a user request for the following and explain your answer:
         """
+
         response = agent.run(f"{prompt} {user_query}")
         mlflow.log_params({"response_type": "Agent", "response_length": len(response)})
-        chat_history.append({"role": "assistant", "content": response})
+
+        # Если ответ содержит код для графика, выполняем его и сохраняем график
+        if "```python" in response:
+            code = response.split("```python")[1].split("```")[0].strip()
+            try:
+                exec(code, globals())
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
+                    plt.savefig(tmpfile.name)
+                    plot_path = tmpfile.name
+                plt.close()
+            except Exception as e:
+                response += f"\n\nError generating plot: {str(e)}"
+
         mlflow.end_run()
-        return response
+        return response.split("```")[0], plot_path  # Убираем отображение кода
     except openai.error.InvalidRequestError as e:
         error_message = f"Invalid request error: {str(e)}"
         mlflow.log_params({"response_type": "Error", "error_message": error_message})
         mlflow.end_run()
-        return error_message
+        return error_message, plot_path
     except Exception as e:
         error_message = f"An error occurred: {str(e)}"
         mlflow.log_params({"response_type": "Error", "error_message": error_message})
         mlflow.end_run()
-        return error_message
-
+        return error_message, plot_path

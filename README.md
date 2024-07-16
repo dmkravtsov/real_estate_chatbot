@@ -5,10 +5,12 @@ This project is a real estate investment chatbot that utilizes GPT-4 and LangCha
 ## Features
 
 - **Data Analysis**: Analyzes real estate data to determine the most profitable investment opportunities.
-- **FAQ Handling**: Answers frequently asked questions using a pre-defined FAQ dataset.
+- **FAQ Handling**: Answers frequently asked questions using a pre-defined FAQ dataset with vector search.
 - **Support Requests**: Detects and logs support requests for further assistance.
 - **Interactive Chat**: Engages users in a conversational manner to address their queries.
 - **Contextual Understanding**: Maintains context across multiple interactions to provide relevant responses.
+- **Graph Plotting**: Generates distribution and dependency graphs based on user queries.
+- **Robust Answer Generation**: Utilizes an agent and CSV file with data to answer various types of questions.
 
 ## Project Structure
 <pre>
@@ -56,3 +58,11 @@ real_estate_chatbot/
 
 - Access the chatbot interface through the Streamlit web application.
 - Enter your queries related to real estate investments, and the chatbot will provide relevant answers and insights based on the data and FAQ information.
+- The bot can plot distribution and dependency graphs, answer questions from `faq.py` using vector search, and handle other types of queries using an agent and a CSV file with data.
+
+## Screenshot
+
+    ```markdown
+    ![Chatbot Interface](screenshot.png)
+    ```
+
