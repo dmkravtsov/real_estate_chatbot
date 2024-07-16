@@ -62,7 +62,5 @@ real_estate_chatbot/
 
 ## Screenshot
 
-    ```markdown
-    ![Chatbot Interface](screenshot.png)
-    ```
+![Chatbot Interface](screenshot.png)
 
