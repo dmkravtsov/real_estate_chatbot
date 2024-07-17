@@ -60,6 +60,11 @@ real_estate_chatbot/
 - Enter your queries related to real estate investments, and the chatbot will provide relevant answers and insights based on the data and FAQ information.
 - The bot can plot distribution and dependency graphs, answer questions from `faq.py` using vector search, and handle other types of queries using an agent and a CSV file with data.
 
+## Data Source
+
+The data in `df.csv` was sourced from [Redfin](https://www.redfin.com/), a real estate brokerage website.
+
+
 ## Screenshot
 
 ![Chatbot Interface](screenshot.jpg)
